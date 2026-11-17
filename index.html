@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixa de Ferramentas - Júlia Marques</title>
+    <!-- Conectando o arquivo de estilos separado -->
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <header>
+        <h1>🧰 Caixa de Ferramentas</h1>
+        <p>Escolha qual utilitário você quer usar agora:</p>
+        
+        <!-- Botões que usam if/else no JavaScript para mostrar ou esconder -->
+        <nav class="menu-botoes">
+            <button id="btn-sorteador" onclick="alternarFerramenta('sorteador')">🎲 Sorteador de Nomes</button>
+            <button id="btn-desconto" onclick="alternarFerramenta('desconto')">🏷️ Calc. de Desconto</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- FERRAMENTA 1: SORTEADOR DE NOMES -->
+        <section id="sec-sorteador" class="card">
+            <h2>🎲 Sorteador de Nomes</h2>
+            <p class="descricao">Digite os nomes separados por vírgula ou um por linha:</p>
+
+            <textarea id="input-nomes" rows="4" placeholder="Ex: Ana, Bruno, Carlos, Júlia..."></textarea>
+            
+            <div class="acoes">
+                <button class="btn-principal" onclick="sortearNome()">Sortear Agora</button>
+                <button class="btn-secundario" onclick="limparSorteio()">Limpar</button>
+            </div>
+
+            <!-- Mensagem de erro (validação) -->
+            <p id="erro-sorteio" class="mensagem-erro"></p>
+
+            <!-- Resultado do sorteio -->
+            <div id="box-resultado" class="resultado oculto">
+                <span>Pessoa sorteada:</span>
+                <strong id="nome-sorteado">---</strong>
+            </div>
+
+            <!-- Histórico salvo no localStorage -->
+            <p id="ultimo-salvo" class="info-storage"></p>
+
+            <!-- Lista gerada com Array + Laço (for) -->
+            <div id="area-lista" class="lista-participantes oculto">
+                <h3>Participantes na disputa:</h3>
+                <ul id="ul-participantes"></ul>
+            </div>
+        </section>
+
+        <!-- FERRAMENTA 2: CALCULADORA DE DESCONTO (Para testar o alternador) -->
+        <section id="sec-desconto" class="card oculto">
+            <h2>🏷️ Calculadora de Desconto</h2>
+            <p class="descricao">Descubra quanto vai pagar após aplicar um desconto:</p>
+
+            <div class="campo">
+                <label for="valor-original">Preço original (R$):</label>
+                <input type="text" id="valor-original" placeholder="Ex: 150.00">
+            </div>
+
+            <div class="campo">
+                <label for="porcentagem-desconto">Desconto (%):</label>
+                <input type="text" id="porcentagem-desconto" placeholder="Ex: 20">
+            </div>
+
+            <button class="btn-principal" onclick="calcularDesconto()">Calcular Preço Final</button>
+
+            <p id="erro-desconto" class="mensagem-erro"></p>
+
+            <div id="resultado-desconto" class="resultado oculto">
+                <span>Valor final com desconto:</span>
+                <strong id="preco-final">R$ 0,00</strong>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por <strong>Júlia da Silva Marques</strong> • 2026</p>
+    </footer>
+
+    <!-- Conectando o arquivo JavaScript separado -->
+    <script src="script.js"></script>
+</body>
+</html>
